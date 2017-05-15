@@ -9,7 +9,7 @@ var HomePage = function (world) {
     _this._data = {
             elements: {
                 menu: {
-                    css: 'a.tab-link span',
+                    css: 'a.tab-link',
                     isSingle: false
                 },
                 departure: {
