@@ -18,3 +18,10 @@ To run scripts in firefox, command is:
 
 
 grunt default:run_firefox
+
+
+
+To run scripts in mobile platform, command is:
+
+
+grunt default:run_chrome --platform=mobile
