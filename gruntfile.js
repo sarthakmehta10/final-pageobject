@@ -33,7 +33,6 @@ module.exports = function(grunt) {
                 options: {
                    configFile: "e2e/conf.js",
                     args: {
-                        browser: "chrome",
                         seleniumAddress: 'http://localhost:4444/wd/hub',
                         cucumberOpts: {
                             tags: process.env.TAGS
@@ -45,7 +44,6 @@ module.exports = function(grunt) {
                 options: {
                     configFile: "e2e/conf.js",
                     args: {
-                        browser: "firefox",
                         seleniumAddress: 'http://localhost:4444/wd/hub',
                         cucumberOpts: {
                             tags: process.env.TAGS
@@ -53,15 +51,6 @@ module.exports = function(grunt) {
                     }
                 }
             },
-            start: {
-                configFile: "e2e/conf.js",
-                args: {
-                    seleniumAddress: 'http://localhost:4444/wd/hub',
-                    cucumberOpts: {
-                        tags: process.env.TAGS
-                    }
-                }
-            }
         },
         
         shell: {
@@ -79,6 +68,12 @@ module.exports = function(grunt) {
     grunt.registerTask('default', 'default task', function (target) {
         process.env.PLATFORM = platform || 'desktop';
         process.env.TAGS = '@' + process.env.PLATFORM;
-        grunt.task.run(['protractor_webdriver:start', 'protractor:' + target])    
+        process.env.BROWSER = browser || "chrome";
+        if(target === 'run_firefox') {
+            process.env.BROWSER = 'firefox';
+            grunt.task.run(['protractor_webdriver:start', 'protractor:' + target])
+        }else {
+            grunt.task.run(['protractor_webdriver:start', 'protractor:' + target])
+        }
     });
 }
