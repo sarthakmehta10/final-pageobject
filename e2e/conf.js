@@ -10,6 +10,7 @@ exports.config = {
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     capabilities: {
+        browserName: process.env.BROWSER,
         chromeOptions : {
             args: [platforms[process.env.PLATFORM]]
         }
