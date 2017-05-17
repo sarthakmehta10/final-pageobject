@@ -12,9 +12,33 @@ var HomePage = function (world) {
                     css: 'a.tab-link',
                     isSingle: false
                 },
+                'menu-link': {
+                    css: '#menu-link',
+                    isSingle: true
+                },
+                menuOption: {
+                    css: 'a[href="#"]',
+                    isSingle: false
+                },
+                'menu-email': {
+                    css: '.mmenu-email input',
+                    isSingle: true
+                },
+                'menu-password': {
+                    css: '.mmenu-password input',
+                    isSingle: true
+                },
+                'menu-login': {
+                    css: '.btn.button-green.login-button strong',
+                    isSingle: true
+                },
                 departure: {
                     css: '#flt_origin_text',
                     isSingle: true
+                },
+                portInput: {
+                    css: '.mobileDropdownInputField',
+                    isSingle: false
                 },
                 countryList: {
                     css: '.countryList>li span',
@@ -72,6 +96,30 @@ var HomePage = function (world) {
                     css: 'button[type="submit"] span[class="flights-and-fares needsclick"]',
                     isSingle: true
                 },
+                myAirbaltic: {
+                    css: '#myairbaltic-href',
+                    isSingle: true
+                },
+                email: {
+                    css: '#loginFormLogin',
+                    isSingle: true
+                },
+                password: {
+                    css: '#loginFormPassword',
+                    isSingle: true
+                },
+                LogIn: {
+                    css: '#login-btn',
+                    isSingle: true
+                },
+                error: {
+                    css: '#login-errors span',
+                    isSingle: true
+                },
+                'menu-error': {
+                    css: '.light-error-div span',
+                    isSingle: true
+                }
             }
         };
     
@@ -84,18 +132,45 @@ var HomePage = function (world) {
         return _this.world.getter.elementGetter(_this._root, _this._data.elements.passengers).get(passengers[name]).click();
     };
     
-    _this.initMenu = function(name) {
-        var menu = {
-            'BOOK A FLIGHT': 0,
-            'MY BOOKING': 1,
-            'ONLINE CHECK-IN': 2
+    _this.initPort = function(field, value) {
+        var portInput = {
+            'depInput': 1,
+            'destInput': 2
         }
-        return _this.world.getter.elementGetter(_this._root, _this._data.elements.menu).get(menu[name]).click();
+        browser.sleep(2000);
+        return _this.world.getter.elementGetter(_this._root, _this._data.elements.portInput).get(portInput[field]).sendKeys(value);
+    };
+    
+    _this.initMenuOption = function(name) {
+        var menuOption = {
+            'My airBaltic': 0,
+            'United Kingdom': 1
+        }
+        return _this.world.getter.elementGetter(_this._root, _this._data.elements.menuOption).get(menuOption[name]).click()
     };
     
     _this.selectDate = function(value) {
         return _this.world.getter.elementGetter(_this._root, _this._data.elements.date).filter(function (date) {
             return date.getText()
+                .then(function(text) {
+                return text === value;
+            });
+        }).click();
+    };
+    
+    _this.getMenu = function(element, name) {
+        return browser.actions().mouseDown(_this.world.getter.elementGetter(this._root, this._data.elements[element])
+        .filter(function (option){
+            return option.getText()
+                    .then(function (text) {
+                    return text === name;
+                });
+        }).get(0)).perform();
+    };
+    
+    _this.getAirport = function(value) {
+        return _this.world.getter.elementGetter(_this._root, _this._data.elements.cityList).filter(function (airport) {
+            return airport.getText()
                 .then(function(text) {
                 return text === value;
             });

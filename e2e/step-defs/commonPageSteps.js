@@ -8,19 +8,27 @@ var steps = function () {
         return _this.pageFactory.currentPage.clickAction(field);
     });
     
-    this.When(/^I select '(.+)' as '(.+)'$/, function (field, value) {
+    this.When(/^I (?:select|choose) '(.+)' as '(.+)'$/, function (field, value) {
         var _this = this;
         return _this.pageFactory.currentPage.getOption(field, value);
     });
     
-//    this.When(/^I choose menu as '(.+)'$/, function (value) {
-//        var _this = this;
-//        return _this.pageFactory.currentPage.initMenu(value);
-//    });
-    
-    this.When(/^I click on '(.+)'$/, function (field) {
+    this.When(/^I enter invalid '(.+)' as '(.+)'$/, function (field, value) {
         var _this = this;
-        return _this.pageFactory.currentPage.initPassengers(field);
+        return _this.pageFactory.currentPage.sendInputs(field, value);
+    });
+    
+    this.When(/^I click on '(.+)' (?:field|button)$/, function (field) {
+        var _this = this;
+        return _this.pageFactory.currentPage.clickAction(field);
+    });
+    
+    this.Then(/^I should get '(.+)' message as '(.+)'$/, function (type, message) {
+        var _this = this;
+        return _this.pageFactory.currentPage.getTextValue(type)
+        .then(function (text) {
+            return expect(text).to.equal(message);
+        });
     });
 }
 

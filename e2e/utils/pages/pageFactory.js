@@ -1,6 +1,6 @@
 'use strict';
-var HomePage = require('./homePage');
-//    Baggage = require('./ResultPages/baggage');
+var HomePage = require('./homePage'),
+    FlightDetails = require('./ResultPages/flightDetails');
 
 var PageFactory = function(world){
     

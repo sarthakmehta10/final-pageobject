@@ -10,7 +10,6 @@ exports.config = {
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     capabilities: {
-        'browserName': 'chrome',
         chromeOptions : {
             args: [platforms[process.env.PLATFORM]]
         }
@@ -19,6 +18,7 @@ exports.config = {
     cucumberOpts: {
         require: [
             'step-defs/*.js',
+            'step-defs/**/*.js',
             'utils/world.js'
         ],
         format: 'pretty',
@@ -29,6 +29,7 @@ exports.config = {
         chaiAsPromised = require('chai-as-promised');
         expect = chai.expect;
         chai.use(chaiAsPromised);
+        moment = require('moment');
         browser.ignoreSynchronization = true;
     }
 };
