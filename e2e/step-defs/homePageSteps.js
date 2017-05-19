@@ -8,9 +8,9 @@ var steps = function () {
         return _this.pageFactory.currentPage.clickAction(value);
     });
     
-    this.When(/^I choose '(.+)' with title '(.+)'$/, function(field, value) {
+    this.When(/^I add option to '(.+)'$/, function(value) {
         var _this = this;
-        return _this.pageFactory.currentPage.getMenu(field, value);
+        return _this.pageFactory.currentPage.initOptions(value);
     });
     
     this.When(/^I set '(.+)' as '(.+)'$/, function(field, value) {
@@ -18,14 +18,19 @@ var steps = function () {
         return _this.pageFactory.currentPage.initPort(field, value)
     });
     
-    this.When(/^I click on '(.+)'$/, function (field) {
+    this.When(/^I click on select button of '(.+)'$/, function (field) {
         var _this = this;
-        return _this.pageFactory.currentPage.initPassengers(field);
+        return _this.pageFactory.currentPage.initSelectButton(field);
     });
     
-    this.When(/^I select menu-option as '(.+)'$/, function (value) {
+    this.When(/^I click on '(.+)' airport link$/, function (field) {
         var _this = this;
-        return _this.pageFactory.currentPage.initMenuOption(value);
+        return _this.pageFactory.currentPage.initAirportLink(field);
+    });
+    
+    this.When(/^I click on '(.+)' button with value '(.+)'$/, function (field, value) {
+        var _this = this;
+        return _this.pageFactory.currentPage.getOption(value);
     });
     
     this.When(/^I enter departure '(.+)' as '(.+)'(?:st|th|nd|rd) day ahead of today$/, function(element, value) {

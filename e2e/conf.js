@@ -15,7 +15,7 @@ exports.config = {
             args: [platforms[process.env.PLATFORM]]
         }
     },
-    specs: [ 'features/*.feature' ],
+    specs: [ 'features/find_flight.feature' ],
     cucumberOpts: {
         require: [
             'step-defs/*.js',
@@ -32,5 +32,7 @@ exports.config = {
         chai.use(chaiAsPromised);
         moment = require('moment');
         browser.ignoreSynchronization = true;
+//        browser.manage().timeouts().pageLoadTimeout(60000);
+//        browser.manage().timeouts().implicitlyWait(40000);
     }
 };

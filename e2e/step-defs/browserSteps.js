@@ -5,7 +5,10 @@ var steps = function (world) {
 
     this.When(/^I navigate to '(.+)' page$/, function (page) {
         var _this = this;
-        return _this.browserUtils.navigateTo(page);
+        return _this.browserUtils.navigateTo(page)
+        .then(function() {
+            browser.getPageTimeout;
+        })
     });
     
     this.Then(/^I should land on '(.+)' results page$/, function (page) {

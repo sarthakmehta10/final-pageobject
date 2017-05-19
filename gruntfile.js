@@ -68,11 +68,11 @@ module.exports = function(grunt) {
     grunt.registerTask('default', 'default task', function (target) {
         process.env.PLATFORM = platform || 'desktop';
         process.env.TAGS = '@' + process.env.PLATFORM;
-        process.env.BROWSER = browser || "chrome";
-        if(target === 'run_firefox') {
+        if(target === 'run_firefox' || browser === 'firefox') {
             process.env.BROWSER = 'firefox';
             grunt.task.run(['protractor_webdriver:start', 'protractor:' + target])
         }else {
+            process.env.BROWSER = 'chrome'
             grunt.task.run(['protractor_webdriver:start', 'protractor:' + target])
         }
     });
