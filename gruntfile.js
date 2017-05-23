@@ -51,6 +51,17 @@ module.exports = function(grunt) {
                     }
                 }
             },
+            run_all: {
+                options: {
+                    configFile: "e2e/multiBrowser-conf.js",
+                    args: {
+                        seleniumAddress: 'http://localhost:4444/wd/hub',
+                        cucumberOpts: {
+                            tags: process.env.TAGS
+                        }
+                    }
+                }
+            }
         },
         
         shell: {
