@@ -21,6 +21,13 @@ grunt default:run_firefox
 
 
 
+To run scripts in both browsers parallely, command is:
+
+
+grunt default:run_all
+
+
+
 To run scripts in mobile platform, command is:
 
 
