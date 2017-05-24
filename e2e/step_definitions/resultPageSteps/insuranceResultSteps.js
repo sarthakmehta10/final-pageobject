@@ -1,6 +1,6 @@
 'use strict';
 
-var steps = function (world) {
+var steps = function () {
     this.setDefaultTimeout(60000);
 
     this.Then(/^I should check total results count is more than '(.+)' results count$/, function (element) {
