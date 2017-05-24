@@ -17,15 +17,19 @@ var steps = function (world) {
         var _this = this,
             numberOne,
             numberTwo;
-        _this.pageFactory.currentPage.getErrorCount()
+        return _this.pageFactory.currentPage.getErrorCount()
         .then(function (number) {
             numberOne = number;
-        });
-        _this.pageFactory.currentPage.getErrorNumber()
+        })
+        .then(function (text) {
+            return _this.pageFactory.currentPage.getErrorNumber();
+        })
         .then(function (text) {
             numberTwo = parseInt(text);
+        })
+        .then(function (text) {
+            return expect(numberOne).to.equal(numberTwo);
         });
-        return expect(numberOne).to.equal(numberTwo);
     });
     
 };
