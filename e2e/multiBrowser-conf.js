@@ -21,8 +21,8 @@ exports.config = {
     specs: [ 'features/*.feature' ],
     cucumberOpts: {
         require: [
-            'step-definitions/*.js',
-            'step-definitions/**/*.js',
+            'step_definitions/*.js',
+            'step_definitions/**/*.js',
             'utils/world.js'
         ],
         format: 'pretty',
