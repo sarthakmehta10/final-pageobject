@@ -9,10 +9,6 @@ Feature: Pet Insurance Test
     Then I should be taken to 'pet-insurance' results page
     And I click on 'getQuote' button
     Then I should be taken to 'pet-details' results page
-    
-  @desktop @mobile
-  Scenario: Complete pet details
-    When I land on 'pet-details' page
     And I choose 'radioButtons' for selecting pet as 'Cat'
     And I enter in 'petName' field with value 'Kitty'
     And I select 'radioButtons' as 'Female'
@@ -34,10 +30,6 @@ Feature: Pet Insurance Test
     And I set 'other-pets' radio button as 'No'
     And I click on 'stepOneSubmit' button
     Then I should be taken to 'owner-details' results page
-    
-  @desktop @mobile
-  Scenario: Complete owner details
-    When I land on 'owner-details' page
     And I set 'your-pet' radio button as 'Yes'
     And I click on 'ownerTitle' field
     And I select 'titleOption' as 'Mr'
@@ -60,10 +52,6 @@ Feature: Pet Insurance Test
     And I select 'checkBox' as 'Email'
     And I click on 'submit' button
     Then I should be taken to 'insurance-result' results page
-    
-  @desktop @mobile
-  Scenario: Compare result counts
-    When I land on 'insurance-result' page
     And I see 'resultCount' is visible
     Then I should check total results count is more than 'accidentOnly' results count
     And I should check total results count is more than 'timeLimited' results count
