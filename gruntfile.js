@@ -3,6 +3,7 @@ module.exports = function(grunt) {
     
     var platform = grunt.option('platform'),
         browser = grunt.option('browser'),
+        count = grunt.option('count'),
         moment = require('moment');
 
     grunt.initConfig({
@@ -78,6 +79,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', 'default task', function (target) {
         process.env.PLATFORM = platform || 'desktop';
+        process.env.COUNT = count || 1;
         process.env.TAGS = '@' + process.env.PLATFORM;
         if(target === 'run_firefox' || browser === 'firefox') {
             process.env.BROWSER = 'firefox';
