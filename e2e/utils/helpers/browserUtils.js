@@ -7,8 +7,8 @@ var BrowserUtils = function(world){
         urls: {
             'home': 'http://www.moneysupermarket.com/insurance',
             'pet-insurance': 'https://www.moneysupermarket.com/pet-insurance/',
-            'pet-details': 'https://www.moneysupermarket.com/pet-insurance/questions/?',
-            'owner-details': 'https://www.moneysupermarket.com/pet-insurance/questions/?step=2',
+            'pet-details': 'https://www.moneysupermarket.com/pet-insurance/questions/',
+            'owner-details': 'https://www.moneysupermarket.com/pet-insurance/questions/',
             'insurance-result': 'https://www.moneysupermarket.com/pet-insurance/questions/results',
         }
     };
