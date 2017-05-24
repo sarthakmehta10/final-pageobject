@@ -32,10 +32,9 @@ Page.prototype.getOption = function(element, value) {
     var myElement = this.world.getter.elementGetter(this._root, this._data.elements[element]);
     return myElement.filter(function (option){
         return option.getText().then(function (text) {
-//            console.log(text);
             return text === value;
         });
-    }).click();
+    }).get(0).click();
 };
 
 module.exports = Page;
