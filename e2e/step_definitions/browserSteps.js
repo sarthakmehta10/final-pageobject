@@ -1,6 +1,6 @@
 'use strict';
 
-var steps = function (world) {
+var steps = function () {
     this.setDefaultTimeout(60000);
 
     this.When(/^I navigate to '(.+)' page$/, function (page) {
