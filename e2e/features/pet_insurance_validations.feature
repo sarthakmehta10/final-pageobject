@@ -6,8 +6,8 @@ Feature: Pet Insurance Test
   Scenario: Get pet insurance quotes
     When I navigate to 'home' page
     And I choose 'insuranceType' as 'Pet Insurance'
-    Then I should be taken to 'pet-insurance' results page
+    Then I should be taken to 'pet-insurance' page
     And I click on 'getQuote' button
-    Then I should be taken to 'pet-details' results page
+    Then I should be taken to 'pet-details' page
     And I click on 'stepOneSubmit' button
     Then I should check the error rows count is equal to the number in error message

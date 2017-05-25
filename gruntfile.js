@@ -2,7 +2,6 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
     
     var platform = grunt.option('platform'),
-        browser = grunt.option('browser'),
         count = grunt.option('count'),
         moment = require('moment');
 
@@ -32,7 +31,7 @@ module.exports = function(grunt) {
             },
             run_chrome: {
                 options: {
-                   configFile: "e2e/conf.js",
+                   configFile: "e2e/chrome_conf.js",
                     args: {
                         seleniumAddress: 'http://localhost:4444/wd/hub',
                         cucumberOpts: {
@@ -43,7 +42,7 @@ module.exports = function(grunt) {
             },
             run_firefox: {
                 options: {
-                    configFile: "e2e/firefox-conf.js",
+                    configFile: "e2e/firefox_conf.js",
                     args: {
                         seleniumAddress: 'http://localhost:4444/wd/hub',
                         cucumberOpts: {
@@ -54,7 +53,7 @@ module.exports = function(grunt) {
             },
             run_all: {
                 options: {
-                    configFile: "e2e/multiBrowser-conf.js",
+                    configFile: "e2e/multiBrowser_conf.js",
                     args: {
                         seleniumAddress: 'http://localhost:4444/wd/hub',
                         cucumberOpts: {
@@ -79,13 +78,11 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', 'default task', function (target) {
         process.env.PLATFORM = platform || 'desktop';
-        process.env.COUNT = count || 1;
         process.env.TAGS = '@' + process.env.PLATFORM;
-        if(target === 'run_firefox' || browser === 'firefox') {
-            process.env.BROWSER = 'firefox';
+        if(target === 'run_all') {
             grunt.task.run(['protractor_webdriver:start', 'protractor:' + target])
         }else {
-            process.env.BROWSER = 'chrome'
+            process.env.COUNT = count || 1;
             grunt.task.run(['protractor_webdriver:start', 'protractor:' + target])
         }
     });

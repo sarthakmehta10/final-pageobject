@@ -25,7 +25,7 @@ var steps = function () {
     
     this.When(/^I set '(.+)' radio button as '(.+)'$/, function (element, value) {
         var _this = this;
-        return _this.pageFactory.currentPage.initYesNO(element, value);
+        return _this.pageFactory.currentPage.getOption(element, value);
     });
     
     this.When(/^I select '(.+)' with '(.+)'(?:st|th|nd|rd) day ahead of today$/, function(element, value) {
@@ -42,11 +42,11 @@ var steps = function () {
         });
     });
     
-    this.When(/^I see '(.+)' is visible$/, function (element) {
+    this.When(/^I see '(.+)' is visible/, function (element) {
         var _this = this;
         return _this.pageFactory.currentPage.waitForElementToLoad(element)
         .then(function() {
-            return browser.sleep(7000);
+            return browser.sleep(3000);
         });
     });
 }

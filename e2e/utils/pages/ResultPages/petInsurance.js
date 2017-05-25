@@ -20,9 +20,17 @@ var PetInsurance = function (world) {
                 css: '.pseudo-radio',
                 isSingle: false
             },
+            petSpecies: {
+                css: '#qs_questions_pet_0_species .pseudo-radio',
+                isSingle: false
+            },
             petName: {
                 css: '#questions_pet_0_name',
                 isSingle: true
+            },
+            petGender: {
+                css: '#qs_questions_pet_0_sex .pseudo-radio',
+                isSingle: false
             },
             monthDate: {
                 css: '#questions_pet_0_dob___month',
@@ -40,12 +48,8 @@ var PetInsurance = function (world) {
                 css: '#questions_pet_0_dob___year option',
                 isSingle: false
             },
-            dayDate: {
-                css: '#questions_pet_0_dob___day',
-                isSingle: true
-            },
-            dayOption: {
-                css: '#questions_pet_0_dob___day option',
+            catType: {
+                css: '#qs_questions_cat_0_type .pseudo-radio',
                 isSingle: false
             },
             petBreed: {
@@ -59,6 +63,38 @@ var PetInsurance = function (world) {
             petCost: {
                 css: '#questions_pet_0_cost',
                 isSingle: true
+            },
+            petNeutered: {
+                css: '#qs_questions_pet_0_neutered .pseudo-radio',
+                isSingle: false
+            },
+            petChipped: {
+                css: '#qs_questions_pet_0_chipped .pseudo-radio',
+                isSingle: false
+            },
+            petVaccine: {
+                css: '#qs_questions_pet_0_vaccinated .pseudo-radio',
+                isSingle: false
+            },
+            petMedical: {
+                css: '#qs_questions_pet_0_pre_existing .pseudo-radio',
+                isSingle: false
+            },
+            petComplaints: {
+                css: '#qs_questions_pet_0_complaints .pseudo-radio',
+                isSingle: false
+            },
+            petBusinessConnection: {
+                css: '#qs_questions_pet_0_business .pseudo-radio',
+                isSingle: false
+            },
+            petAlcoholEnvironment: {
+                css: '#qs_questions_pet_0_alcohol .pseudo-radio',
+                isSingle: false
+            },
+            otherPets: {
+                css: '#qs_questions_pet_0_add_pet .pseudo-radio',
+                isSingle: false
             },
             stepOneSubmit: {
                 css: '#questions_submit',
@@ -75,32 +111,13 @@ var PetInsurance = function (world) {
         }
     };
     
-    _this.initYesNO = function(type, value) {
-        var radioButtons = {
-            'neutered': 0,
-            'chipped': 1,
-            'vaccines': 2,
-            'medical-conditions': 3,
-            'legal-action': 4,
-            'business-connected': 5,
-            'alcohol': 6,
-            'other-pets': 7
-        }
-        return _this.world.getter.elementGetter(_this._root, _this._data.elements.radioButtons).filter(function (choice) {
-            return choice.getText()
-                .then(function(text) {
-                return text.includes(value);
-            });
-        }).get(radioButtons[type]).click();
-    };
-    
     _this.getErrorCount = function() {
         return _this.world.getter.elementGetter(_this._root, _this._data.elements.errorRows).count();
     };
     
     _this.getErrorNumber = function() {
         return _this.world.getter.elementGetter(_this._root, _this._data.elements.errorNumber).getText();
-    }
+    };
     
 };
 

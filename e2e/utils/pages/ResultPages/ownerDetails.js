@@ -16,6 +16,10 @@ var OwnerDetails = function (world) {
                 css: '.pseudo-radio',
                 isSingle: false
             },
+            ownerKeeper: {
+                css: '#qs_questions_owner_keeper .pseudo-radio',
+                isSingle: false
+            },
             ownerTitle: {
                 css: '#questions_owner_title',
                 isSingle: true
@@ -44,6 +48,10 @@ var OwnerDetails = function (world) {
                 css: '#questions_owner_address___select option',
                 isSingle: false
             },
+            ownerProperty: {
+                css: '#qs_questions_owner_kept_at_property .pseudo-radio',
+                isSingle: false
+            },
             date: {
                 css: '#questions_policy_start_date',
                 isSingle: true
@@ -64,6 +72,14 @@ var OwnerDetails = function (world) {
                 css: '#questions_owner_dob___year',
                 isSingle: true
             },
+            maritalStatus: {
+                css: '#qs_questions_owner_marital_status .pseudo-radio',
+                isSingle: false
+            },
+            ukResident: {
+                css: '#qs_questions_owner_uk_resident .pseudo-radio',
+                isSing: false
+            },
             phoneNumber: {
                 css: '#questions_owner_phone',
                 isSingle: true
@@ -77,7 +93,7 @@ var OwnerDetails = function (world) {
                 isSingle: true
             },
             checkBox: {
-                css: '.pseudo-radio.pseudo-radio__check',
+                css: '#qs_questions_contactPreferences .pseudo-radio.pseudo-radio__check',
                 isSingle: false
             },
             submit: {
@@ -85,20 +101,6 @@ var OwnerDetails = function (world) {
                 isSingle: true
             }
         }
-    };
-    
-    _this.initYesNO = function(type, value) {
-        var radioButtons = {
-            'your-pet': 0,
-            'address': 1,
-            'full-time': 2
-        }
-        return _this.world.getter.elementGetter(_this._root, _this._data.elements.radioButtons).filter(function (choice) {
-            return choice.getText()
-                .then(function(text) {
-                return text.includes(value);
-            });
-        }).get(radioButtons[type]).click();
     };
     
     _this.selectAddress = function(address) {

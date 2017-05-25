@@ -21,7 +21,7 @@ var steps = function () {
         });
     });
     
-    this.Then(/^I should be taken to '(.+)' results page$/, function (page) {
+    this.Then(/^I should be taken to '(.+)' page$/, function (page) {
         var _this = this;
         return _this.browserUtils.takenTo(page)
         .then(function () {

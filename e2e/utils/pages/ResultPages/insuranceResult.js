@@ -35,6 +35,14 @@ var InsuranceResult = function (world) {
             filter: {
                 css: '#filters-trigger',
                 isSingle: true
+            },
+            editQuote: {
+                css: '.col-xs-12>a',
+                isSingle: true
+            },
+            loadingBox: {
+                css: '#loading-donk h2',
+                isSingle: true
             }
         }
     };
@@ -42,7 +50,6 @@ var InsuranceResult = function (world) {
     _this.getResultsCount = function(resultField) {
         var resultOne,
             resultTwo;
-        browser.sleep(3000);
         return _this.world.getter.elementGetter(_this._root, _this._data.elements.allResults).click()
         .then(function () {
             return _this.world.getter.elementGetter(_this._root, _this._data.elements.resultCount).getText()
@@ -51,7 +58,6 @@ var InsuranceResult = function (world) {
             });
         })
         .then(function () {
-            browser.sleep(4000);
             return _this.world.getter.elementGetter(_this._root, _this._data.elements[resultField]).click()
             .then(function () {
                 return _this.world.getter.elementGetter(_this._root, _this._data.elements.resultCount).getText()
@@ -74,7 +80,6 @@ var InsuranceResult = function (world) {
             resultTwo;
         return _this.world.getter.elementGetter(_this._root, _this._data.elements.filter).click()
         .then(function() {
-            browser.sleep(2000);
             return _this.world.getter.elementGetter(_this._root, _this._data.elements.allResults).click()
             .then(function () {
                 return _this.world.getter.elementGetter(_this._root, _this._data.elements.resultCount).getText()
@@ -84,11 +89,9 @@ var InsuranceResult = function (world) {
             });
         })
         .then(function() {
-            browser.sleep(4000);
             return _this.world.getter.elementGetter(_this._root, _this._data.elements.filter).click();
         })
         .then(function () {
-            browser.sleep(3000);
             return _this.world.getter.elementGetter(_this._root, _this._data.elements[resultField]).click()
             .then(function () {
                 return _this.world.getter.elementGetter(_this._root, _this._data.elements.resultCount).getText()
