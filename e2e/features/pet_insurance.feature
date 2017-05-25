@@ -2,7 +2,7 @@ Feature: Pet Insurance Test
   As a user
   I can go to pet insurance results page and count the results
   
-  @desktop @mobile
+  @desktop @mobile @ignore
   Scenario: Get pet insurance quotes
     When I navigate to 'home' page
     And I choose 'insuranceType' as 'Pet Insurance'
