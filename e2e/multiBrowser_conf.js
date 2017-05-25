@@ -25,8 +25,7 @@ exports.config = {
             'step_definitions/**/*.js',
             'utils/world.js'
         ],
-        format: 'pretty',
-        tags: process.env.TAGS
+        format: 'pretty'
     },
     onPrepare: function() {
         var chai = require('chai');
