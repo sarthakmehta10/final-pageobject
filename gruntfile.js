@@ -46,7 +46,7 @@ module.exports = function(grunt) {
                     args: {
                         seleniumAddress: 'http://localhost:4444/wd/hub',
                         cucumberOpts: {
-                            tags: process.env.TAGS
+                            tags: ['~@ignore','<%= protractor.platformTag%>']
                         }
                     }
                 }
@@ -57,7 +57,7 @@ module.exports = function(grunt) {
                     args: {
                         seleniumAddress: 'http://localhost:4444/wd/hub',
                         cucumberOpts: {
-                            tags: process.env.TAGS
+                            tags: ['~@ignore','<%= protractor.platformTag%>']
                         }
                     }
                 }
