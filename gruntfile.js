@@ -35,7 +35,7 @@ module.exports = function(grunt) {
                     args: {
                         seleniumAddress: 'http://localhost:4444/wd/hub',
                         cucumberOpts: {
-                            tags: process.env.TAGS
+                            tags: ['~@ignore','<%= protractor.platformTag%>']
                         }
                     }
                 }
@@ -61,6 +61,17 @@ module.exports = function(grunt) {
                         }
                     }
                 }
+            },
+            wip: {
+                options: {
+                   configFile: "e2e/chrome_conf.js",
+                    args: {
+                        seleniumAddress: 'http://localhost:4444/wd/hub',
+                        cucumberOpts: {
+                            tags: ['@wip','<%= protractor.platformTag%>']
+                        }
+                    }
+                }
             }
         },
         
@@ -79,6 +90,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', 'default task', function (target) {
         process.env.PLATFORM = platform || 'desktop';
         process.env.TAGS = '@' + process.env.PLATFORM;
+        grunt.config.set('protractor.platformTag', process.env.TAGS);
         if(target === 'run_all') {
             grunt.task.run(['protractor_webdriver:start', 'protractor:' + target])
         }else {
