@@ -2,7 +2,7 @@ Feature: Pet Insurance Test
   As a user
   I can check validations and verify the results
   
-  @desktop @mobile
+  @desktop @mobile @wip
   Scenario: Get pet insurance quotes
     When I navigate to 'home' page
     And I choose 'insuranceType' as 'Pet Insurance'
