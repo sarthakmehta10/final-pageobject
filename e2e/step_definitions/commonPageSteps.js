@@ -34,7 +34,7 @@ var steps = function () {
         return _this.pageFactory.currentPage.selectDate(process.env.DATE);
     });
     
-    this.Then(/^I should get '(.+)' message as '(.+)'$/, function (type, message) {
+    this.Then(/^I should verify '(.+)' text is '(.+)'$/, function (type, message) {
         var _this = this;
         return _this.pageFactory.currentPage.getTextValue(type)
         .then(function (text) {
@@ -42,12 +42,9 @@ var steps = function () {
         });
     });
     
-    this.When(/^I see '(.+)' is visible/, function (element) {
+    this.When(/^I wait for '(.+)' to get closed/, function (element) {
         var _this = this;
-        return _this.pageFactory.currentPage.waitForElementToLoad(element)
-        .then(function() {
-            return browser.sleep(3000);
-        });
+        return _this.pageFactory.currentPage.waitForElementToClose(element);
     });
 }
 

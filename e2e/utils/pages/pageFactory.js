@@ -2,7 +2,10 @@
 var HomePage = require('./homePage'),
     PetInsurance = require('./ResultPages/petInsurance'),
     OwnerDetails = require('./ResultPages/ownerDetails'),
-    InsuranceResult = require('./ResultPages/insuranceResult');
+    BikeInsurance = require('./ResultPages/bikeInsurance'),
+    BikeDetails = require('./ResultPages/bikeDetails'),
+    PetInsuranceResult = require('./ResultPages/petInsuranceResult'),
+    BikeInsuranceResult = require('./ResultPages/bikeInsuranceResult');
 
 var PageFactory = function(world){
     
@@ -16,7 +19,11 @@ var PageFactory = function(world){
             'pet-insurance': PetInsurance,
             'pet-details': PetInsurance,
             'owner-details': OwnerDetails,
-            'insurance-result': InsuranceResult
+            'pet-insurance-result': PetInsuranceResult,
+            'bike-insurance': BikeInsurance,
+            'bike-details': BikeInsurance,
+            'more-bike-details': BikeDetails,
+            'bike-insurance-result': BikeInsuranceResult
         };
         if(!pages[page]){
             throw new Error('Wrong page name: ' + pages[page]);

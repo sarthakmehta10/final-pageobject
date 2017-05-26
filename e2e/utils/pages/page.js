@@ -14,6 +14,7 @@ Page.prototype.sendInputs = function(element, value) {
 };
 
 Page.prototype.clickAction = function(element) {
+    browser.sleep(1000);
     return this.world.getter.elementGetter(this._root, this._data.elements[element]).click();
 };
 
@@ -21,15 +22,19 @@ Page.prototype.waitForPageToLoad = function() {
     return browser.sleep(2000);
 };
 
-Page.prototype.waitForElementToLoad = function(element) {
+Page.prototype.waitForElementToClose = function(element) {
     var myElement = this.world.getter.elementGetter(this._root, this._data.elements[element]);
     return browser.wait(function () {
-        return myElement.isDisplayed();
-    }, 20000);
+        return myElement.isDisplayed()
+        .then(function(present) {
+            return !present;
+        })
+    }, 120000);
 };
 
 Page.prototype.getOption = function(element, value) {
     var myElement = this.world.getter.elementGetter(this._root, this._data.elements[element]);
+    browser.sleep(2000);
     return myElement.filter(function (option){
         return option.getText().then(function (text) {
             return text === value;

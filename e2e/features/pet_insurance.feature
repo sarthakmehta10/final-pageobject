@@ -51,10 +51,8 @@ Feature: Pet Insurance Test
     And I enter in 'confirmMail' field with value 'abcd@gmail.com'
     And I select 'checkBox' as 'Email'
     And I click on 'submit' button
-    Then I should be taken to 'insurance-result' page
-    And I see 'loadingBox' is visible
-    And I see 'editQuote' is visible
-    And I see 'resultCount' is visible
+    Then I should be taken to 'pet-insurance-result' page
+    And I wait for 'loadingBox' to get closed
     Then I should check total results count is more than 'accidentOnly' results count
     And I should check total results count is more than 'timeLimited' results count
     And I should check total results count is more than 'perCondition' results count

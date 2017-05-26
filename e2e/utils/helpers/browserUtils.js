@@ -9,7 +9,11 @@ var BrowserUtils = function(world){
             'pet-insurance': 'https://www.moneysupermarket.com/pet-insurance/',
             'pet-details': 'https://www.moneysupermarket.com/pet-insurance/questions/',
             'owner-details': 'https://www.moneysupermarket.com/pet-insurance/questions/',
-            'insurance-result': 'https://www.moneysupermarket.com/pet-insurance/questions/results',
+            'pet-insurance-result': 'https://www.moneysupermarket.com/pet-insurance/questions/results',
+            'bike-insurance': 'https://www.moneysupermarket.com/motorbike-insurance/',
+            'bike-details': 'https://www.moneysupermarket.com/motorbike-insurance/quoting.php',
+            'more-bike-details': 'https://www.moneysupermarket.com/motorbike-insurance/quoting.php',
+            'bike-insurance-result': 'https://www.moneysupermarket.com/motorbike-insurance/quoting.php'
         }
     };
 
