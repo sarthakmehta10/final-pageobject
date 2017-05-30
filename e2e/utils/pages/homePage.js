@@ -8,6 +8,14 @@ var HomePage = function (world) {
     _this.world = world;
     _this._data = {
             elements: {
+                logo: {
+                    css: '#imgSiteLogo',
+                    isSingle: true
+                },
+                logoMobile: {
+                    css: '#logoMobile',
+                    isSingle: true
+                },
                 insuranceType: {
                     css: '.header-text h2',
                     isSingle: false

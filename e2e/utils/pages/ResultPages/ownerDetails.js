@@ -8,8 +8,8 @@ var OwnerDetails = function (world) {
     _this.world = world;
     _this._data = {
         elements: {
-            pageTitle: {
-                css: '.bar-title',
+            stepPageLogo: {
+                css: '.site-header.transparent img',
                 isSingle: true
             },
             radioButtons: {
@@ -104,13 +104,21 @@ var OwnerDetails = function (world) {
     };
     
     _this.selectAddress = function(address) {
-        browser.sleep(2000);
-        return _this.world.getter.elementGetter(_this._root, _this._data.elements.addressOption).filter(function (choice) {
-            return choice.getText()
-                .then(function(text) {
-                return text.includes(address);
-            });
-        }).click();
+        var myElement = _this.world.getter.elementGetter(_this._root, _this._data.elements.addressOption);
+        return browser.wait(function () {
+            return myElement.count()
+                .then(function(num) {
+                return num > 0;
+            })
+        }, 80000)
+            .then(function() {
+            return myElement.filter(function (choice) {
+                return choice.getText()
+                    .then(function(text) {
+                    return text.includes(address);
+                });
+            }).get(0).click();
+        });
     };
     
     _this.selectDate = function(date) {
@@ -119,7 +127,7 @@ var OwnerDetails = function (world) {
                 .then(function(text) {
                 return text.includes(date);
             });
-        }).click();
+        }).get(0).click();
     };
     
 };

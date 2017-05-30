@@ -8,8 +8,12 @@ var PetInsurance = function (world) {
     _this.world = world;
     _this._data = {
         elements: {
-            pageTitle: {
-                css: '.bar-title',
+            logo: {
+                css: '.header__logo-responsive',
+                isSingle: true
+            },
+            stepPageLogo: {
+                css: '.site-header.transparent img',
                 isSingle: true
             },
             getQuote: {

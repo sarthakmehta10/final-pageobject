@@ -17,15 +17,15 @@ var BrowserUtils = function(world){
         }
     };
 
-    _this.navigateTo = function(page){
+    _this.navigateTo = function(page, logo){
         return browser.get(_this._data.urls[page])
         .then(function() {
-            return world.pageFactory.getPage(page);
+            return world.pageFactory.getPage(page, logo);
         });
     };
     
-    _this.takenTo = function(page) {
-        return world.pageFactory.getPage(page);
+    _this.takenTo = function(page, logo) {
+        return world.pageFactory.getPage(page, logo);
     }
     
     _this.currentPagePresent = function(page) {

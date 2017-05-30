@@ -13,6 +13,11 @@ var steps = function () {
         return _this.pageFactory.currentPage.getOption(field, value);
     });
     
+    this.When(/^I (?:select|choose) bike makers as '(.+)'$/, function (value) {
+        var _this = this;
+        return _this.pageFactory.currentPage.selectBike(value);
+    });
+    
     this.When(/^I enter in '(.+)' field with value '(.+)'$/, function (field, value) {
         var _this = this;
         return _this.pageFactory.currentPage.sendInputs(field, value);

@@ -91,11 +91,6 @@ module.exports = function(grunt) {
         process.env.PLATFORM = platform || 'desktop';
         process.env.TAGS = '@' + process.env.PLATFORM;
         grunt.config.set('protractor.platformTag', process.env.TAGS);
-        if(target === 'run_all') {
-            grunt.task.run(['protractor_webdriver:start', 'protractor:' + target])
-        }else {
-            process.env.COUNT = count || 1;
-            grunt.task.run(['protractor_webdriver:start', 'protractor:' + target])
-        }
+        grunt.task.run(['protractor_webdriver:start', 'protractor:' + target])
     });
 }

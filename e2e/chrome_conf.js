@@ -13,8 +13,7 @@ exports.config = {
         browserName: 'chrome',
         chromeOptions : {
             args: [platforms[process.env.PLATFORM]]
-        },
-        count: process.env.COUNT
+        }
     },
     specs: [ 'features/*.feature' ],
     cucumberOpts: {

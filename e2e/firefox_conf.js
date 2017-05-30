@@ -13,8 +13,7 @@ exports.config = {
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     capabilities: {
         browserName: 'firefox',
-        'marionette': true,
-        count: process.env.COUNT
+        'marionette': true
     },
     specs: [ 'features/*.feature' ],
     cucumberOpts: {

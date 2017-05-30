@@ -8,6 +8,10 @@ var BikeDetails = function (world) {
     _this.world = world;
     _this._data = {
         elements: {
+            stepPageLogo: {
+                css: '.header-logo',
+                isSingle: true
+            },
             ownerTitle: {
                 css: 'button[id*="ID_QX_PERSON_PER_TITLE_"]',
                 isSingle: false
@@ -156,13 +160,21 @@ var BikeDetails = function (world) {
     };
     
     _this.selectAddress = function(address) {
-        browser.sleep(2000);
-        return _this.world.getter.elementGetter(_this._root, _this._data.elements.addressOption).filter(function (choice) {
-            return choice.getText()
-                .then(function(text) {
-                return text.includes(address);
-            });
-        }).get(0).click();
+        var myElement = _this.world.getter.elementGetter(_this._root, _this._data.elements.addressOption);
+        return browser.wait(function () {
+            return myElement.count()
+                .then(function(num) {
+                return num > 0;
+            })
+        }, 80000)
+            .then(function() {
+            return myElement.filter(function (choice) {
+                return choice.getText()
+                    .then(function(text) {
+                    return text.includes(address);
+                });
+            }).get(0).click();
+        });
     };
 
 };

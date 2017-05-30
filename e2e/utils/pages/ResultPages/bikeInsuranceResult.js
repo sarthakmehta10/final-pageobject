@@ -8,6 +8,10 @@ var BikeInsuranceResult = function (world) {
     _this.world = world;
     _this._data = {
         elements: {
+            stepPageLogo: {
+                css: '.header-logo',
+                isSingle: true
+            },
             loadingBox: {
                 css: '#loading-donk h2',
                 isSingle: true

@@ -2,13 +2,13 @@ Feature: Bike Insurance Test
   As a user
   I can go to bike insurance results page and count the results
   
-  @desktop
+  @desktop 
   Scenario: Get Bike insurance quotes
-    When I navigate to 'home' page
+    When I navigate to 'home' page and see 'logo' or 'logoMobile' is visible
     And I choose 'insuranceType' as 'Bike Insurance'
-    Then I should be taken to 'bike-insurance' page
+    Then I should be taken to 'bike-insurance' page and see 'logo' is visible
     And I click on 'getQuote' button
-    Then I should be taken to 'bike-details' page
+    Then I should be taken to 'bike-details' page and see 'stepPageLogo' is visible
     And I select 'registeredBike' as 'No'
     And I click on 'registeredYear' field
     And I choose 'registeredYearOption' as '2013 = 62, 13 & 63 Reg'
@@ -36,7 +36,7 @@ Feature: Bike Insurance Test
     And I select 'pillionPassenger' as 'Yes'
     And I choose 'policyStart' as 'Tomorrow'
     And I click on 'stepOneSubmit' button
-    Then I should be taken to 'more-bike-details' page
+    Then I should be taken to 'more-bike-details' page and see 'stepPageLogo' is visible
     And I choose 'ownerTitle' as 'Mr'
     And I enter in 'firstName' field with value 'Ivan'
     And I enter in 'lastName' field with value 'Kotovich'
@@ -73,18 +73,18 @@ Feature: Bike Insurance Test
     And I select 'bestPrice' as 'Yes'
     And I choose 'contactMode' as 'Phone'
     And I click on 'stepTwoSubmit' button
-    Then I should be taken to 'bike-insurance-result' page
+    Then I should be taken to 'bike-insurance-result' page and see 'stepPageLogo' is visible
     And I wait for 'loadingBox' to get closed
     Then I should verify 'insuranceCover' text is 'Comprehensive cover'
     And I should verify 'voluntaryExcess' text is '£900'
     
   @mobile
   Scenario: Get Bike insurance quotes
-    When I navigate to 'home' page
+    When I navigate to 'home' page and see 'logo' or 'logoMobile' is visible
     And I choose 'insuranceType' as 'Bike Insurance'
-    Then I should be taken to 'bike-insurance' page
+    Then I should be taken to 'bike-insurance' page and see 'logo' is visible
     And I click on 'getQuote' button
-    Then I should be taken to 'bike-details' page
+    Then I should be taken to 'bike-details' page and see 'stepPageLogo' is visible
     And I select 'registeredBike' as 'No'
     And I click on 'registeredYear' field
     And I choose 'registeredYearOption' as '2013 = 62, 13 & 63 Reg'
@@ -112,7 +112,7 @@ Feature: Bike Insurance Test
     And I select 'pillionPassenger' as 'Yes'
     And I choose 'policyStart' as 'Tomorrow'
     And I click on 'stepOneSubmit' button
-    Then I should be taken to 'more-bike-details' page
+    Then I should be taken to 'more-bike-details' page and see 'stepPageLogo' is visible
     And I choose 'ownerTitle' as 'Mr'
     And I enter in 'firstName' field with value 'Ivan'
     And I enter in 'lastName' field with value 'Kotovich'
@@ -149,5 +149,5 @@ Feature: Bike Insurance Test
     And I select 'bestPrice' as 'Yes'
     And I choose 'contactMode' as 'Phone'
     And I click on 'stepTwoSubmit' button
-    Then I should be taken to 'bike-insurance-result' page
+    Then I should be taken to 'bike-insurance-result' page and see 'stepPageLogo' is visible
     And I wait for 'loadingBox' to get closed

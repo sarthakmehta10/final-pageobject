@@ -8,6 +8,10 @@ var PetInsuranceResult = function (world) {
     _this.world = world;
     _this._data = {
         elements: {
+            stepPageLogo: {
+                css: '.site-header.transparent img',
+                isSingle: true
+            },
             resultCount: {
                 css: '#numQuotes',
                 isSingle: true

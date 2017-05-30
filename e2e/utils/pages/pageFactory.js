@@ -13,7 +13,7 @@ var PageFactory = function(world){
 
     _this.currentPage = 'undefined';
 
-    _this.getPage = function(page){
+    _this.getPage = function(page, logo){
         var pages = {
             'home': HomePage,
             'pet-insurance': PetInsurance,
@@ -29,7 +29,7 @@ var PageFactory = function(world){
             throw new Error('Wrong page name: ' + pages[page]);
         }
         _this.currentPage = new pages[page](world);
-        return _this.currentPage.waitForPageToLoad();
+        return _this.currentPage.waitForLogo(logo);
     };
 };
 

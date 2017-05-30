@@ -8,6 +8,14 @@ var BikeInsurance = function (world) {
     _this.world = world;
     _this._data = {
         elements: {
+            logo: {
+                css: '.header__logo-responsive',
+                isSingle: true
+            },
+            stepPageLogo: {
+                css: '.header-logo',
+                isSingle: true
+            },
             getQuote: {
                 css: '.fancy-button.fancy-button.fancy-button',
                 isSingle: true
