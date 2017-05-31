@@ -13,7 +13,9 @@ exports.config = {
         browserName: 'chrome',
         chromeOptions : {
             args: [platforms[process.env.PLATFORM]]
-        }
+        },
+        shardTestFiles: true,
+        maxInstances: 2
     },
     specs: [ 'features/*.feature' ],
     cucumberOpts: {
